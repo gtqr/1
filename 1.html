@@ -75,9 +75,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
             </td>
     <td></td>
              <td class="gif-cell">
-                <a href="https://gtqr.github.io/1/sqr_copy.png">
+                <span onclick="copyToClipboard('phone_number')">
                 <img src="https://gtqr.github.io/1/sqr_copy.png">
                 <p class="text-cell">Copy phone<br> </p>
+                  </span>
                 </a>
             </td>
         </tr>
@@ -90,9 +91,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
             </td>
      <td></td>
              <td class="gif-cell">
-                <a href="https://gtqr.github.io/1/sqr_copy.png">
+                <span onclick="copyToClipboard('official_mail')">
                 <img src="https://gtqr.github.io/1/sqr_copy.png">
                 <p class="text-cell">Copy e-mail<br> </p>
+                  </span>
                 </a>
             </td>
         </tr>
@@ -105,9 +107,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
             </td>
          <td></td>
              <td class="gif-cell">
-                <a href="https://gtqr.github.io/1/sqr_copy.png">
+                <span onclick="copyToClipboard('personal_mail')">
                 <img src="https://gtqr.github.io/1/sqr_copy.png">
                 <p class="text-cell">Copy e-mail<br> </p>
+                  </span>
                 </a>
             </td>
         </tr>
@@ -120,10 +123,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
             </td>
                 <td></td>
              <td class="gif-cell">
-                <a href="https://gtqr.github.io/1/sqr_copy.png">
+                <span onclick="copyToClipboard('more_info')">
                 <img src="https://gtqr.github.io/1/sqr_copy.png">
                 <p class="text-cell">Copy link<br> </p>
-                </a>
+                </span>
             </td>
         </tr>
        <tr>
@@ -138,6 +141,26 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
             </td>
         </tr>
     </table>
-    
+     <div style="display: none;">
+      <span id="phone_number">+38(044)239-32-50</span>
+      <span id="official_mail">vice-rector.research@knu.ua</span>
+      <span id="personal_mail">ganna.tolstanova@knu.ua</span>
+      <span id="more_info">Посилання</span>
+     </div>
+   <script>
+    function copyToClipboard(elementId) {
+      var text = document.getElementById(elementId).innerText;
+      var input = document.createElement("input");
+      input.style.position = "fixed";
+      input.style.opacity = 0;
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      document.body.removeChild(input);
+      alert("'" + text + "'" + " скопійовано!");
+    }
+  </script>
   </body>
 </html>
